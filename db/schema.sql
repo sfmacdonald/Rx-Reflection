@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS rxrf_db;
+CREATE DATABASE rxrf_db;
