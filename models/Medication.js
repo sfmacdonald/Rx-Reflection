@@ -1,12 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
-class Drug extends Model {
+const User = require('./User'); // Import the User model
+class Medication extends Model {
 
 
 }
 
-Drug.init(
+Medication.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -18,18 +18,35 @@ Drug.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    dose: {
+    dosage: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    frequency: {
+    dayOfWeek: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    route: {
-      type: DataTypes.STRING,
+    inUse: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
       allowNull: false,
     },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: User,
+        key: 'id',
+      },
+    },
+
 
   },
   {
@@ -37,8 +54,8 @@ Drug.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'drug',
+    modelName: 'medication',
   }
 );
 
-module.exports = Drug;
+module.exports = Medication;
