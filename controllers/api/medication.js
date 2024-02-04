@@ -1,6 +1,21 @@
 const router = require('express').Router();
-const { Drug } = require('../../models');
+const { Medication } = require('../../models/Medication');
 
-router.get('/');
+router.post('/', async (req, res) => {
+    try {
+        const medicationData = await Medication.create({
+            name: req.body.name,
+            dosage: req.body.dosage,
+            dayOfWeek: req.body.dayOfWeek,
+            inUse: req.body.inUse,
+            createdAt: req.body.createdAt,
+            updatedAt: req.body.updatedAt,
+            userId: req.body.userId,
+        });
+        res.status(200).json(medicationData);
+    }   catch (err) {
+        res.status(400).json(err);
+    }
+});
 
-router.post('/');
+module.exports = router;
