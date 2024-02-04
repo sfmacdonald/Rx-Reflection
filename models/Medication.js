@@ -30,14 +30,6 @@ Medication.init(
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -46,12 +38,10 @@ Medication.init(
         key: 'id',
       },
     },
-
-
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'medication',
