@@ -43,5 +43,55 @@ router.put('/:id', async (req,res) => {
 
 module.exports = router;
 
+router.get('/', async (req, res) => {
+    try {
+        const dbMedicationData = await Medication.findAll({
+            include: [
+                {
+                    model: Medication,
+                    attributes: ['name', 'dosage'],
+                },
+            ],
+        });
+
+        const medications = dbMedicationData.map((medication) =>
+            gallery.get({ plain: true })
+        );
+
+        // res.render('medicationpage', {
+        //     medications,
+        // });
+    }   catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/medication/:id', async (req, res) => {
+    try {
+        const dbMedicationData = await Medication.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Medication,
+                    attributes: [
+                        'id',
+                        'name',
+                        'dosage',
+                        'dayOfWeek',
+                        'inUse',
+                    ],
+                },
+            ],
+        });
+
+        const medication = dbMedicationData.get({ plain: true });
+        res.render('medication', { medication });     
+    }   catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+
 
 
