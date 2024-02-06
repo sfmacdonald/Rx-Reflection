@@ -22,13 +22,37 @@ Medication.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    dayOfWeek: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     inUse: {
       type: DataTypes.BOOLEAN,
       allowNull: false
+    },
+    monday: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    tuesday: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    wednesday: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    thursday: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    friday: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    saturday: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    sunday: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     userId: {
       type: DataTypes.INTEGER,
