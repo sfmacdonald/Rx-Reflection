@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Ampicillin",
+    "dosage": "250mg",
+    "dayOfWeek": "Monday",
+    "inUse": true,
+    "userId": "2"
+  },
+  {
+    "name": "Ibuprofen",
+    "dosage": "200mg",
+    "dayOfWeek": "Wednesday",
+    "inUse": false,
+    "userId": "3"
+  },
+  {
+    "name": "Ciprofloxacin",
+    "dosage": "500mg",
+    "dayOfWeek": "Tuesday",
+    "inUse": true,
+    "userId": "4"
+  },
+  {
+    "name": "Aspirin",
+    "dosage": "75mg",
+    "dayOfWeek": "Thursday",
+    "inUse": false,
+    "userId": "5"
+  },
+  {
+    "name": "Levothyroxine",
+    "dosage": "50mcg",
+    "dayOfWeek": "Saturday",
+    "inUse": true,
+    "userId": "1"
+  }
+]
