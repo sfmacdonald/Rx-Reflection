@@ -120,10 +120,34 @@ body, html {
     width: 25px; /* Slightly smaller menu icon for compactness */
   }
 
+  /* Adjust layout for smaller screens */
   .login-form, .patient-form {
-    max-width: 100%; /* Allows the form to expand to the full width of smaller screens */
+    padding: 0 15px; /* Add padding to improve readability */
+    max-width: none; /* Remove max-width to allow full width */
+  }
+
+  .input,
+  .button {
+    width: 100%; /* Set input and button width to full for better responsiveness */
+  }
+
+  /* Additional specific adjustments as needed */
+  .login-form .input,
+  .patient-form .input {
+    margin-bottom: 15px; /* Increase margin bottom for input fields */
+  }
+
+  .login-form .button-container,
+  .patient-form .button-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+  }
+
+  .login-form .button,
+  .patient-form .button {
+    margin: 10px 0; /* Adjust button margin for better spacing */
   }
 }
+
 
 /* New Patient Form Page */
 .new-patient-form {
