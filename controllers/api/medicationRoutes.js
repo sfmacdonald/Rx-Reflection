@@ -65,6 +65,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+module.exports = router;
+
 router.get('/medication/:id', async (req, res) => {
     try {
         const dbMedicationData = await Medication.findByPk(req.params.id, {
@@ -90,6 +92,25 @@ router.get('/medication/:id', async (req, res) => {
     }
 });
 
+module.exports = router;
+
+
+router.delete('/:id', async (req,res) => {
+    try {
+        const medication = await Medication.destroy(
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        );
+        res.status(200).json(medication);
+    }   catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
 
 
 
