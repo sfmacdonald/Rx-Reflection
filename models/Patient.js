@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const User = require('./User'); // Import the User model
 
 class Patient extends Model {}
 
@@ -72,6 +72,14 @@ Patient.init(
       type: DataTypes.STRING,
       allowNull: true,  
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: User,
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -82,7 +90,7 @@ Patient.init(
   }
 );
 
-model.exports = Patient;
+module.exports = Patient;
 
 
 
