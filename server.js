@@ -34,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// Nick to modularize home and managemeds
+// create get routes in medication, home
 app.get('/home', (req, res) => {
   res.render('homepage');
 })
@@ -42,6 +44,7 @@ app.get('/managemeds', (req, res) => {
   res.render('managemeds');
 })
 
+// Faith modularize addPatient
 app.get('/addpatient', (req, res) => {
   res.render('addpatient');
 })
