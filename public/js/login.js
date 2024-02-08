@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/home');
+      document.location.replace('/home'); // GETS the /home ednpoint
     } else {
       alert('Failed to log in');
     }
