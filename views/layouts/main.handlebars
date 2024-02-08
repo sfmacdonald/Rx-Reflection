@@ -13,12 +13,11 @@
   <header class="site-header">
     <div class="title-logo">Rx Reflection</div>
     <div class="menu-icon"></div>
-  </header>
-  {{#if logged_in}}
-  <nav>
-    <button class="btn" id="logout">logout</button>
-  </nav>
-  {{/if}}
+    {{#if logged_in}}
+    <nav>
+      <button class="btn" id="logout">logout</button>
+    </nav>
+    {{/if}}
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
