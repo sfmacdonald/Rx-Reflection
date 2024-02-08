@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     res.render('login', {
     });
@@ -20,7 +20,17 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/home', (req, res) => {
+router.get('/home', async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { id: req.session.user_id } });
+    console.log(userData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+
+
+
+
   res.render('homepage');
 })
 
