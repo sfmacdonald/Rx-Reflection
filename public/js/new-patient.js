@@ -29,32 +29,33 @@ document.addEventListener('DOMContentLoaded', function() {
          required: true,
      },
      gender: {
-         label: 'Gender',
+         label: 'Gender (optional)',
          type: 'select',
          id: ['male', 'female', 'other'],
          name: 'gender',
          options: [
+             { value: '', text: 'Select one', disabled: true, selected: true },
              { value: 'male', text: 'Male' },
              { value: 'female', text: 'Female' },
              { value: 'other', text: 'Other' },
          ],
-         required: true,
      },
      height: {
          label: 'Height (cm)',
          type: 'number',
          id: 'height',
          name: 'height',
-         placeholder: 'Enter height',
          required: true,
+         min: 0,
      },
      weight: {
-         label: 'Weight (in pounds):',
+         label: 'Weight (lbs):',
          type: 'number',
          id: 'weight',
          name: 'weight',
          step: '1.0',
          required: true,
+         min: 0,
      },
      email: {
          label: 'Email',
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
          id: 'email',
          name: 'email',
          pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
+         placeholder: 'Enter valid email address',
          required: true,
      },
      address1: {
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
          required: true,
      },
      address2: {
-         label: 'Address 2',
+         label: 'Address 2 (optional)',
          type: 'text',
          id: 'address2',
          name: 'address2',
@@ -91,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
          name: 'state',
          required: true,
          options: [
+             { value: '', text: 'Select one', disabled: true, selected: true },
              { value: 'AL', text: 'Alabama' },
              { value: 'AK', text: 'Alaska' },
              { value: 'AZ', text: 'Arizona' },
@@ -171,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
          type: "password",  
          id: "pass1",
          name: "pass1" ,
+         placeholder: 'Enter password (minimum 8 characters)',
          required: true,
          minLength: 8,
      },
@@ -213,6 +217,8 @@ document.addEventListener('DOMContentLoaded', function() {
              const option = document.createElement('option');
              option.value = opt.value;
              option.textContent = opt.text;
+             if (opt.disabled) option.disabled = opt.disabled; // Handle disabled attribute
+             if (opt.selected) option.selected = opt.selected; // Handle selected attribute
              select.appendChild(option);
          });
          parent.appendChild(select);
