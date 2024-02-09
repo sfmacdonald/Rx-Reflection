@@ -61,4 +61,43 @@ router.put('/:id', async (req,res) => {
 
 module.exports = router;
 
+router.get('/patient/:id', async (req, res) => {
+    try {
+        const dbPatientData = await Patient.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Patient,
+                    attributes: [
+                        'id',
+                        'first_name',
+                        'last_name',
+                        'date_of_birth',
+                        'gender',
+                        'height',
+                        'weight',
+                        'email',
+                        'street',
+                        'apt_unit_number',
+                        'city',
+                        'state',
+                        'zip_code',
+                        'phone_1',
+                        'phone_2',
+                        'userId',
+
+                    ],
+                },
+            ],
+        });
+
+        const patient = dbPatientData.get({ plain: true });
+        res.render('patient', { patient });
+    }   catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
+
 
