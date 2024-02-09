@@ -16,6 +16,9 @@
     {{#if logged_in}}
     <nav>
       <button class="btn" id="logout">logout</button>
+      {{#unless patientUser}}
+      <a href="/add-patient" class="nav-link">Add Patient</a>
+      {{/unless}}
     </nav>
     {{/if}}
   </header>

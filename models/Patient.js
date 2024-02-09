@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./User'); // Import the User model
 
-class Patient extends Model {}
+class Patient extends Model { }
 
 Patient.init(
   {
@@ -22,19 +22,19 @@ Patient.init(
     },
     date_of_birth: {
       type: DataTypes.DATE,
-      allowNull: false,  
+      allowNull: false,
     },
     gender: {
       type: DataTypes.STRING,
-      allowNull: false,  
+      allowNull: false,
     },
     height: {
-      type: DataTypes.DECIMAL(5,2),
+      type: DataTypes.DECIMAL(5, 2),
       allowNull: false,
     },
     weight: {
       type: DataTypes.INTEGER,
-      allowNull: false,  
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
@@ -46,7 +46,7 @@ Patient.init(
     },
     street: {
       type: DataTypes.STRING,
-      allowNull: false,  
+      allowNull: false,
     },
     apt_unit_number: {
       type: DataTypes.STRING,
@@ -54,27 +54,27 @@ Patient.init(
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,  
+      allowNull: false,
     },
     state: {
       type: DataTypes.STRING,
-      allowNull: false,  
+      allowNull: false,
     },
     zip_code: {
       type: DataTypes.STRING,
-      allowNull: false,  
+      allowNull: false,
     },
     phone_1: {
       type: DataTypes.STRING,
-      allowNull: false,   
+      allowNull: false,
     },
     phone_2: {
       type: DataTypes.STRING,
-      allowNull: true,  
+      allowNull: true,
     },
     userId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: User,
         key: 'id',

@@ -31,7 +31,7 @@
     "zip_code": "54321",
     "phone_1": "555-987-6543",
     "phone_2": null,
-    "userId": 2
+    "userId": null
   },
   {
     "first_name": "Michael",
@@ -48,7 +48,7 @@
     "zip_code": "67890",
     "phone_1": "555-234-5678",
     "phone_2": null,
-    "userId": 3
+    "userId": null
   },
   {
     "first_name": "Emily",
@@ -65,7 +65,7 @@
     "zip_code": "45678",
     "phone_1": "555-345-6789",
     "phone_2": "555-456-7890",
-    "userId": 4
+    "userId": null
   },
   {
     "first_name": "William",
@@ -82,6 +82,6 @@
     "zip_code": "98765",
     "phone_1": "555-567-8901",
     "phone_2": null,
-    "userId": 5
+    "userId": null
   }
 ]
