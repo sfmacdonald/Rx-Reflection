@@ -101,3 +101,19 @@ router.get('/patient/:id', async (req, res) => {
 module.exports = router;
 
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const patient = await Patient.destroy(
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        );
+        res.status(200).json(patient);
+    }   catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
