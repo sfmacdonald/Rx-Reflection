@@ -16,6 +16,9 @@ Comment.init(
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
+      validate: {
+        len: [1, 500] // Example validation: content length between 1 and 500 characters
+      }
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -50,5 +53,9 @@ Comment.init(
     modelName: 'comment',
   }
 );
+
+// Define associations
+Comment.belongsTo(User, { foreignKey: 'userId', onDelete: 'CASCADE' });
+Comment.belongsTo(Medication, { foreignKey: 'medicationId', onDelete: 'CASCADE' });
 
 module.exports = Comment;
