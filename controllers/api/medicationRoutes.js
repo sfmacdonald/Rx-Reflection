@@ -67,7 +67,7 @@ router.get('/', async (req, res) => {
         });
 
         const medications = dbMedicationData.map((medication) =>
-            gallery.get({ plain: true })
+            medication.get({ plain: true })
         );
 
         // res.render('medicationpage', {
