@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const addMedicationBtn = document.querySelector('.add-medication-btn');
     const saveMedicationBtn = document.getElementById('saveMedication');
     const medicationItems = document.querySelector('.medication-items');
@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addMedicationBtn.addEventListener('click', showModal);
 
-    saveMedicationBtn.addEventListener('click', function() {
+    saveMedicationBtn.addEventListener('click', function () {
         const medicationName = document.getElementById('medicationName').value;
-        const strength = document.getElementById('strength').value; 
-        const dosage = document.getElementById('dosage').value; 
+        const strength = document.getElementById('strength').value;
+        const dosage = document.getElementById('dosage').value;
         const frequency = document.getElementById('frequency').value;
         const route = document.getElementById('route').value;
-        const duration = document.getElementById('duration').value; 
+        const duration = document.getElementById('duration').value;
 
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         medicationItems.appendChild(newRow);
 
-        newRow.querySelector('.remove-btn').addEventListener('click', function() {
+        newRow.querySelector('.remove-btn').addEventListener('click', function () {
             newRow.remove();
         });
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.hide();
     });
     // Add event listener for the print button
-    printMedicationListBtn.addEventListener('click', function() {
+    printMedicationListBtn.addEventListener('click', function () {
         window.print(); // Use the browser's print functionality
     });
 });
