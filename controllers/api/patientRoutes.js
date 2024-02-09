@@ -61,6 +61,31 @@ router.put('/:id', async (req,res) => {
 
 module.exports = router;
 
+router.get('/', async (req, res) => {
+    try {
+        const dbPatientData = await Patient.findAll({
+            include: [
+                {
+                    model: Patient,
+                    attributes: ['first_name', 'last_name', 'email'],
+                },
+            ],
+        });
+        const patients = dbPatientData.map((patient) =>
+            patient.get({ plain: true })
+        );
+
+        // res.render('patientpage', {
+        //     patients,
+        // });
+    }   catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
+
 router.get('/patient/:id', async (req, res) => {
     try {
         const dbPatientData = await Patient.findByPk(req.params.id, {
