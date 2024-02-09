@@ -217,8 +217,8 @@ body, html {
   }
 }
 
-  .new-patient-form {
-    padding: 10px;
+.new-patient-form {
+  padding: 10px;
   }
 
 
@@ -281,12 +281,17 @@ body, .med-list, .med-list * {
   }
   
   .med-list {
-      background: #ffffff;
-      padding: 20px;
-  }
+    background: #ffffff;
+    padding: 20px;
+    width: fit-content;
+    text-align: center;
+    margin-left: auto; 
+    margin-right: auto;
+    border: 1px solid #000000;
+}
+
   
   .medication-items {
-      display: flex;
       flex-direction: column;
       gap: 10px;
       margin-bottom: 20px;
