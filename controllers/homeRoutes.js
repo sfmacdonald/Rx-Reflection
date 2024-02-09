@@ -24,11 +24,19 @@ router.get('/login', (req, res) => {
 router.get('/home', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { id: req.session.user_id } });
+    console.log("🚀 ~ router.get ~ req.session.user_id:", req.session.user_id)
 
     const logged_in = req.session.logged_in || false;
 
+  
+    const patientUser = await Patient.findOne({ where: { userId: req.session.user_id } });
+    console.log(patientUser);
 
-    res.render('homepage', { userData, logged_in });
+
+    res.render('homepage', {
+      logged_in,
+      patientUser
+    });
   } catch (err) {
     res.status(400).json(err);
   }
