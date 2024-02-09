@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 
 module.exports = router;
 
-router.put('/:id', async (req,res) => {
+router.put('/:id', async (req, res) => {
     try {
         const medication = await Medication.update(
             {
@@ -39,7 +39,7 @@ router.put('/:id', async (req,res) => {
                 thursday: req.body.thursday,
                 friday: req.body.friday,
                 saturday: req.body.saturday,
-                sunday: req.body.sunday, 
+                sunday: req.body.sunday,
             },
             {
                 where: {
@@ -48,7 +48,7 @@ router.put('/:id', async (req,res) => {
             }
         );
         res.status(200).json(medication);
-    }   catch (err) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
@@ -73,7 +73,7 @@ router.get('/', async (req, res) => {
         // res.render('medicationpage', {
         //     medications,
         // });
-    }   catch (err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -106,8 +106,8 @@ router.get('/medication/:id', async (req, res) => {
         });
 
         const medication = dbMedicationData.get({ plain: true });
-        res.render('medication', { medication });     
-    }   catch (err) {
+        res.render('medication', { medication });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -116,7 +116,7 @@ router.get('/medication/:id', async (req, res) => {
 module.exports = router;
 
 
-router.delete('/:id', async (req,res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const medication = await Medication.destroy(
             {
@@ -126,12 +126,11 @@ router.delete('/:id', async (req,res) => {
             }
         );
         res.status(200).json(medication);
-    }   catch (err) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
 
 module.exports = router;
-
 
 
