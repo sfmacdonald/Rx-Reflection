@@ -3,18 +3,13 @@ const { Medication } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        const medicationData = await Medication.create({ // change this to align with the medication data fields
-            name: req.body.name,
+        const medicationData = await Medication.create({
+            medicationName: req.body.medicationName,
+            strength: req.body.strength,
             dosage: req.body.dosage,
-            dayOfWeek: req.body.dayOfWeek,
-            inUse: req.body.inUse,
-            monday: req.body.monday,
-            tuesday: req.body.tuesday,
-            wednesday: req.body.wednesday,
-            thursday: req.body.thursday,
-            friday: req.body.friday,
-            saturday: req.body.saturday,
-            sunday: req.body.sunday,
+            frequency: req.body.frequency,
+            route: req.body.route,
+            duration: req.body.duration,
             userId: req.body.userId,
         });
         res.status(200).json(medicationData);
@@ -29,17 +24,12 @@ router.put('/:id', async (req, res) => {
     try {
         const medication = await Medication.update(
             {
-                name: req.body.name,
+                medicationName: req.body.medicationName,
+                strength: req.body.strength,
                 dosage: req.body.dosage,
-                dayOfWeek: req.body.dayOfWeek,
-                inUse: req.body.inUse,
-                monday: req.body.monday,
-                tuesday: req.body.tuesday,
-                wednesday: req.body.wednesday,
-                thursday: req.body.thursday,
-                friday: req.body.friday,
-                saturday: req.body.saturday,
-                sunday: req.body.sunday,
+                frequency: req.body.frequency,
+                route: req.body.route,
+                duration: req.body.duration,
             },
             {
                 where: {
@@ -61,7 +51,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Medication,
-                    attributes: ['name', 'dosage'],
+                    attributes: ['medicationName', 'dosage'],
                 },
             ],
         });
@@ -87,18 +77,12 @@ router.get('/medication/:id', async (req, res) => {
                 {
                     model: Medication,
                     attributes: [
-                        'id',
-                        'name',
+                        'medicationName',
+                        'strength',
                         'dosage',
-                        'dayOfWeek',
-                        'inUse',
-                        'monday',
-                        'tuesday',
-                        'wednesday',
-                        'thursday',
-                        'friday',
-                        'saturday',
-                        'sunday',
+                        'frequency',
+                        'route',
+                        'duration',
                     ],
                 },
             ],
