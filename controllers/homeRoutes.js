@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../models');
 
-
 // Prevent non logged in users from viewing the homepage
 router.get('/', async (req, res) => {
     try {
