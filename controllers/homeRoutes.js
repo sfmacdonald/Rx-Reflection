@@ -11,12 +11,16 @@ router.get('/', async (req, res) => {
     }
 });
 
+
 router.get('/dashboard', async (req, res) => {
     try {
         const logged_in = req.session.logged_in;
+        const firstName = req.session.firstName;
         console.log(logged_in);
+        console.log(firstName);
         res.render('dashboard', {
-            logged_in
+            logged_in,
+            firstName
         });
     } catch (err) {
         res.status(500).json(err);
