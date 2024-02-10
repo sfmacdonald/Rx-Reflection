@@ -82,31 +82,18 @@ html {
   padding: 20px;
 }
 
-#dayContainer {
-  display: flex;
-  justify-content: center;
-  /* Horizontally center */
-  align-items: center;
-  /* Vertically center */
-  margin-top: 20px;
-  /* Adjust the top margin as needed */
+/* Home Dashboard */
+@keyframes grow {
+  0% { transform: scale(1); }
+  100% { transform: scale(2); }
 }
 
-.dayBox {
-  width: 200px;
-  /* Adjust width as needed */
-  height: 200px;
-  /* Adjust height as needed */
-  background-color: #ca5513;
-  margin: 0 25px;
-  /* Adjust the margin between boxes as needed */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  /* Optional: Add rounded corners */
-  font-size: xx-large;
-  font-weight: bolder;
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
 }
 
 
