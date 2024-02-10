@@ -14,7 +14,19 @@
                 </tr>
             </thead>
             <tbody class="medication-items">
-                <!-- Medication items will be added here dynamically -->
+                {{#each medications}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.strength}}</td>
+                    <td>{{this.dosage}}</td>
+                    <td>{{this.frequency}}</td>
+                    <td>{{this.route}}</td>
+                    <td>{{this.duration}}</td>
+                    <td>
+                        <!-- Actions like Edit/Delete could be added here, using the medication ID -->
+                    </td>
+                </tr>
+                {{/each}}
             </tbody>
         </table>
         <button class="add-medication-btn btn btn-primary">+ Add New Medication</button>

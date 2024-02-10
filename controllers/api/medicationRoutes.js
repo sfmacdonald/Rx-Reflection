@@ -3,7 +3,7 @@ const { Medication } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        const medicationData = await Medication.create({
+        const medicationData = await Medication.create({ // change this to align with the medication data fields
             name: req.body.name,
             dosage: req.body.dosage,
             dayOfWeek: req.body.dayOfWeek,
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-module.exports = router;
+
 
 router.put('/:id', async (req, res) => {
     try {
@@ -53,7 +53,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+
 
 router.get('/', async (req, res) => {
     try {
@@ -79,7 +79,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-module.exports = router;
 
 router.get('/medication/:id', async (req, res) => {
     try {
@@ -112,9 +111,6 @@ router.get('/medication/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-module.exports = router;
-
 
 router.delete('/:id', async (req, res) => {
     try {

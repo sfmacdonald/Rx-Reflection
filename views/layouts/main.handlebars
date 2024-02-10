@@ -13,8 +13,16 @@
   <header class="site-header">
     <div class="title-logo">Rx Reflection</div>
     {{#if logged_in}}
+    <div class="menu-container">
+      <div class="menu-text">Menu</div>
+      <div class="menu-content">
+        <a href="/home">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/api/medications">Medications</a>
+      </div>
+    </div>
     <nav>
-      <button class="btn" id="logout">logout</button>
+      <button class="btn" id="logout">Logout</button>
     </nav>
     {{/if}}
   </header>
