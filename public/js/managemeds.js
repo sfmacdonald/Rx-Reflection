@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const addMedicationBtn = document.querySelector('.add-medication-btn');
     const saveMedicationBtn = document.getElementById('saveMedication');
     const medicationItems = document.querySelector('.medication-items');
@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     addMedicationBtn.addEventListener('click', showModal);
 
-    saveMedicationBtn.addEventListener('click', function () {
+    saveMedicationBtn.addEventListener('click', function() {
         const medicationName = document.getElementById('medicationName').value;
-        const strength = document.getElementById('strength').value;
-        const dosage = document.getElementById('dosage').value;
+        const strength = document.getElementById('strength').value; 
+        const dosage = document.getElementById('dosage').value; 
         const frequency = document.getElementById('frequency').value;
         const route = document.getElementById('route').value;
-        const duration = document.getElementById('duration').value;
+        const duration = document.getElementById('duration').value; 
 
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
@@ -31,17 +31,35 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         medicationItems.appendChild(newRow);
 
-        newRow.querySelector('.remove-btn').addEventListener('click', function () {
-            newRow.remove();
-        });
+        attachRemoveListener(newRow);
 
         document.getElementById('medicationForm').reset();
         var myModalEl = document.getElementById('medicationAddModal');
         var modal = bootstrap.Modal.getInstance(myModalEl);
         modal.hide();
     });
+
     // Add event listener for the print button
-    printMedicationListBtn.addEventListener('click', function () {
+    printMedicationListBtn.addEventListener('click', function() {
         window.print(); // Use the browser's print functionality
     });
+
+    function attachRemoveListener(row) {
+        row.querySelector('.remove-btn').addEventListener('click', function() {
+            var removeModal = new bootstrap.Modal(document.getElementById('removeMedicationModal'));
+            var confirmRemoveBtn = document.getElementById('confirmRemove');
+            
+            // Remove any existing event listeners to avoid multiple removals
+            var newConfirmRemoveBtn = confirmRemoveBtn.cloneNode(true);
+            confirmRemoveBtn.parentNode.replaceChild(newConfirmRemoveBtn, confirmRemoveBtn);
+            
+            // Add event listener to the new confirm button
+            newConfirmRemoveBtn.addEventListener('click', function() {
+                row.remove();
+                removeModal.hide();
+            });
+            
+            removeModal.show();
+        });
+    }
 });
