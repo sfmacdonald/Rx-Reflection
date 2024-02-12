@@ -39,9 +39,9 @@ app.use(routes);
 
 
 
-// app.get('/managemeds', (req, res) => {
-//   res.render('managemeds');
-// })
+app.get('/managemeds', (req, res) => {
+  res.render('managemeds');
+})
 
 // Faith modularize addPatient
 // app.get('/addpatient', (req, res) => {
