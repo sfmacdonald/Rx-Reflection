@@ -50,19 +50,20 @@ router.get('/', async (req, res) => {
         const dbMedicationData = await Medication.findAll({
             include: [
                 {
-                    model: Medication,
-                    attributes: ['medicationName', 'dosage'],
+                    model: User,
+                    attributes: ['firstName','lastName'],
                 },
             ],
+            attributes: ['medicationName','dosage'],
         });
 
         const medications = dbMedicationData.map((medication) =>
             medication.get({ plain: true })
         );
 
-        // res.render('medicationpage', {
-        //     medications,
-        // });
+        res.render('managemeds', {
+            medications,
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

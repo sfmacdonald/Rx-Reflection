@@ -10,3 +10,4 @@ document.addEventListener("DOMContentLoaded", function () {
         pillBottle.style.animation = "shake 0.5s ease-in-out 5";
     }, 5000); // 5000 milliseconds = 5 seconds
 });
+
