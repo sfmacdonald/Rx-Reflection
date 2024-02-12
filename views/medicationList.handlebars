@@ -1,0 +1,39 @@
+<!-- medicationList.handlebars -->
+
+<!-- Include Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Main content -->
+<div class="container mt-5">
+    <h2>Medication List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Medication Name</th>
+                <th>Strength</th>
+                <th>Dosage</th>
+                <th>Frequency</th>
+                <th>Route</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each medications}}
+            <tr>
+                <td>{{this.dataValues.medicationName}}</td>
+                <td>{{this.dataValues.strength}}</td>
+                <td>{{this.dataValues.dosage}}</td>
+                <td>{{this.dataValues.frequency}}</td>
+                <td>{{this.dataValues.route}}</td>
+                <td>{{this.dataValues.duration}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/managemeds"></script>
