@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error('Failed to add medication');
             }
 
+
+
             // Medication added successfully, now add it to the table
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
