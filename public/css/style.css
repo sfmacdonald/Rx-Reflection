@@ -1,8 +1,11 @@
 /* Global Styles */
+
+/* Apply box-sizing border-box to all elements for consistent sizing */
 * {
   box-sizing: border-box;
 }
 
+/* Body and HTML reset */
 body, html {
   margin: 0;
   padding: 0;
@@ -15,7 +18,7 @@ body, html {
   background-attachment: fixed; /* Keeps the background stationary during scroll */
 }
 
-/* Header */
+/* Header styles */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -23,7 +26,7 @@ body, html {
   padding: 0 20px;
   background-color: #ca5513;
   color: #ffffff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); 
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* Add subtle text shadow for better visibility */
 }
 
 .title-logo {
@@ -54,7 +57,7 @@ body, html {
   top: 8px;
 }
 
-/* Login Page */
+/* Login Page styles */
 .login-page {
   display: flex;
   flex-direction: column;
@@ -127,7 +130,7 @@ body, html {
   }
 }
 
-/* New Patient Form Page */
+/* New Patient Form Page styles */
 .new-patient-form {
   flex-direction: column;
   align-items: center;
@@ -141,7 +144,6 @@ body, html {
   font-weight: bold;
   text-align: center;
   position: relative; 
-
 }
 
 .new-patient-form fieldset {
@@ -153,7 +155,6 @@ body, html {
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #000000;
-  
 }
 
 .new-patient-form label {
@@ -210,17 +211,16 @@ body, html {
   color: #ca5513;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Additional Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .new-patient-form fieldset {
     flex-direction: column;
   }
-}
 
   .new-patient-form {
     padding: 10px;
   }
-
+}
 
 /* Accessibility Improvements */
 .new-patient-form input:focus,
@@ -268,42 +268,41 @@ body, html {
   cursor: pointer;
 }
 
-/*meds*/
+/* Medications Page */
 body, .med-list, .med-list * {
-    box-sizing: border-box;
-  }
-  
-  .site-header h1 {
-      color: #ffffff;
-      background-color: #ca5513;
-      padding: 20px;
-      text-align: center;
-  }
-  
-  .med-list {
-      background: #ffffff;
-      padding: 20px;
-  }
-  
-  .medication-items {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-  }
-  
-  .medication-item {
-      display: flex;
-      justify-content: space-between;
-      background: #d9d9d9;
-      padding: 10px;
-  }
-  
-  .add-medication-btn {
-      background-color: #ca5513;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-  }
-  
+  box-sizing: border-box;
+}
+
+.site-header h1 {
+  color: #ffffff;
+  background-color: #ca5513;
+  padding: 20px;
+  text-align: center;
+}
+
+.med-list {
+  background: #ffffff;
+  padding: 20px;
+}
+
+.medication-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.medication-item {
+  display: flex;
+  justify-content: space-between;
+  background: #d9d9d9;
+  padding: 10px;
+}
+
+.add-medication-btn {
+  background-color: #ca5513;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
