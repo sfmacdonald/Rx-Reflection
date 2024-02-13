@@ -1,45 +1,71 @@
 const router = require('express').Router();
 const { Medication } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.get('/add-medication', (req, res) => {
+    res.render('managemeds', {
+        logged_in: true,
+    });
+})
+router.get('/view-medications', async (req, res) => {
     try {
-        const medicationData = await Medication.create({
-            name: req.body.name,
-            dosage: req.body.dosage,
-            dayOfWeek: req.body.dayOfWeek,
-            inUse: req.body.inUse,
-            monday: req.body.monday,
-            tuesday: req.body.tuesday,
-            wednesday: req.body.wednesday,
-            thursday: req.body.thursday,
-            friday: req.body.friday,
-            saturday: req.body.saturday,
-            sunday: req.body.sunday,
-            userId: req.body.userId,
+        // Retrieve user_id from session
+        const userId = req.session.user_id;
+
+        console.log(userId);
+
+        // Find medications associated with the user_id
+        const medications = await Medication.findAll({
+            where: {
+                user_id: userId
+            }
         });
+
+        console.log(medications);
+
+        // Render medicationList view and pass medications data to the template
+        res.render('medicationList', {
+            medications,  // Pass medications array directly
+            logged_in: true
+        });
+    } catch (error) {
+        console.error('Error retrieving user medications:', error);
+        // Render an error page or handle the error in some way
+        res.status(500).send('Internal server error');
+    }
+});
+
+router.post('/add-medication', async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+
+        const medicationData = await Medication.create({
+            medicationName: req.body.medicationName,
+            strength: req.body.strength,
+            dosage: req.body.dosage,
+            frequency: req.body.frequency,
+            route: req.body.route,
+            duration: req.body.duration,
+            user_id: userId, // Use req.session.user_id to populate the user_id field
+        });
+
         res.status(200).json(medicationData);
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-module.exports = router;
 
-router.put('/:id', async (req,res) => {
+
+router.put('/:id', async (req, res) => {
     try {
         const medication = await Medication.update(
             {
-                name: req.body.name,
+                medicationName: req.body.medicationName,
+                strength: req.body.strength,
                 dosage: req.body.dosage,
-                dayOfWeek: req.body.dayOfWeek,
-                inUse: req.body.inUse,
-                monday: req.body.monday,
-                tuesday: req.body.tuesday,
-                wednesday: req.body.wednesday,
-                thursday: req.body.thursday,
-                friday: req.body.friday,
-                saturday: req.body.saturday,
-                sunday: req.body.sunday, 
+                frequency: req.body.frequency,
+                route: req.body.route,
+                duration: req.body.duration,
             },
             {
                 where: {
@@ -48,38 +74,38 @@ router.put('/:id', async (req,res) => {
             }
         );
         res.status(200).json(medication);
-    }   catch (err) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
 
-module.exports = router;
+
 
 router.get('/', async (req, res) => {
     try {
         const dbMedicationData = await Medication.findAll({
             include: [
                 {
-                    model: Medication,
-                    attributes: ['name', 'dosage'],
+                    model: User,
+                    attributes: ['firstName', 'lastName'],
                 },
             ],
+            attributes: ['medicationName', 'dosage'],
         });
 
         const medications = dbMedicationData.map((medication) =>
-            gallery.get({ plain: true })
+            medication.get({ plain: true })
         );
 
-        // res.render('medicationpage', {
-        //     medications,
-        // });
-    }   catch (err) {
+        res.render('managemeds', {
+            medications,
+        });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-module.exports = router;
 
 router.get('/medication/:id', async (req, res) => {
     try {
@@ -88,35 +114,26 @@ router.get('/medication/:id', async (req, res) => {
                 {
                     model: Medication,
                     attributes: [
-                        'id',
-                        'name',
+                        'medicationName',
+                        'strength',
                         'dosage',
-                        'dayOfWeek',
-                        'inUse',
-                        'monday',
-                        'tuesday',
-                        'wednesday',
-                        'thursday',
-                        'friday',
-                        'saturday',
-                        'sunday',
+                        'frequency',
+                        'route',
+                        'duration',
                     ],
                 },
             ],
         });
 
         const medication = dbMedicationData.get({ plain: true });
-        res.render('medication', { medication });     
-    }   catch (err) {
+        res.render('medication', { medication });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-module.exports = router;
-
-
-router.delete('/:id', async (req,res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const medication = await Medication.destroy(
             {
@@ -126,12 +143,11 @@ router.delete('/:id', async (req,res) => {
             }
         );
         res.status(200).json(medication);
-    }   catch (err) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
 
 module.exports = router;
-
 
 

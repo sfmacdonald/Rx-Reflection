@@ -1,32 +1,38 @@
 [
   {
-    "id": 1,
-    "username": "sal",
-    "email": "sal@hotmail.com",
-    "password": "password12345"
+      "firstName": "John",
+      "middleName": null,
+      "lastName": "Doe",
+      "dateOfBirth": "1990-05-15",
+      "gender": "Male",
+      "height": 180,
+      "weight": 75,
+      "email": "johndoe@example.com",
+      "password": "password123",
+      "address1": "123 Main St",
+      "address2": null,
+      "city": "Anytown",
+      "state": "AZ",
+      "zipcode": "12345",
+      "phone1": "123-456-7890",
+      "phone2": null
   },
   {
-    "id": 2,
-    "username": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345"
-  },
-  {
-    "id": 3,
-    "username": "Amiko",
-    "email": "amiko2k20@aol.com",
-    "password": "password12345"
-  },
-  {
-    "id": 4,
-    "username": "Jordan",
-    "email": "jordan99@msn.com",
-    "password": "password12345"
-  },
-  {
-    "id": 5,
-    "username": "Blake",
-    "email": "the_blake@yahoo.com",
-    "password": "password12345"
+      "firstName": "Mike",
+      "middleName": null,
+      "lastName": "Doe",
+      "dateOfBirth": "1990-05-15",
+      "gender": "Male",
+      "height": 180,
+      "weight": 75,
+      "email": "mikedoe@example.com",
+      "password": "password123",
+      "address1": "123 Main St",
+      "address2": null,
+      "city": "Anytown",
+      "state": "AZ",
+      "zipcode": "12345",
+      "phone1": "123-456-7890",
+      "phone2": null
   }
 ]

@@ -7,74 +7,48 @@ class Medication extends Model {
 }
 
 Medication.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
+    {
+        medicationName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        strength: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        dosage: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        frequency: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        route: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: 'Oral'
+        },
+        duration: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: User,
+                key: 'id',
+            },
+        },
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    dosage: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    inUse: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    monday: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    tuesday: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    wednesday: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    thursday: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    friday: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    saturday: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    sunday: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    route: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: User,
-        key: 'id',
-      },
-    },
-  },
-  {
-    sequelize,
-    timestamps: true,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'medication',
-  }
+    {
+        sequelize,
+        timestamps: true,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'medication',
+    }
 );
 
 module.exports = Medication;
