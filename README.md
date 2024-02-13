@@ -10,16 +10,15 @@ Application for patients to track medications
 - [Collaboraters](#collaboraters)
 - [Initial Wireframes](#initial-wireframes)
 - [Timeline of Work](#timeline-of-work)
-- [APIs](#apis)
 - [Features](#features)
 - [Usage](#usage)
-- [Testing](#testing)
+- [Stakeholder Presentation](#stakeholder-presentation)
 
 # Description
 
 This application allows any user who needs to track medications they take or have taken in the past to maintain a profile with their medications in it. The user shall create a profile featuring a username and password to protect their personal medication information. The user may enter information about their prescription such as dose, reason for use, route, and more to track their needs. This application will use node.js and Express.js, creating a RESTful API, as well as Handlebars.js for the template engine. In addition to these, it will feature GET and POST routes for retrieving and adding new data.
 
-Stakeholder requirements for the aopplication include:
+Stakeholder requirements for the application include:
 
     1. Use Node.js and Express.js to create a RESTful API.
     2. Use Handlebars.js as the templating engine.
@@ -43,10 +42,10 @@ As a patient prescribed medications, I need the ability to track which ones I ta
 ## Collaboraters
 
 The following members of the 2023-2024 ASU Coding Bootcamp participated on this project:
-- Nicholas Smith
-- Sean MacDonald
-- Faith O'Connor
-- Anthony Castillo
+- Nicholas Smith (https://github.com/nicklearning)
+- Sean MacDonald (https://github.com/sfmacdonald)
+- Faith O'Connor (https://github.com/floconno)
+- Anthony Castillo (https://github.com/ac1745198)
 
 The collaborators agreed to leverge Slack as a project tracker to communicate ensuring all acceptance criteria are met in the final product and no redundant work was occurring.
 
@@ -78,13 +77,6 @@ Today's Medications ![Today](<./wireframes/Daily Meds.png>)
 
 **Monday, March 12th, 2024:** Present final project to stakeholders
 
-
-## APIs
-
-The following APIs are leveraged for this search engine:
-
-1. 
-
 ## Features
 
 This web-based medication tracker shall have the following features and functions:
@@ -112,3 +104,7 @@ The live URL for the working website deployed via Heroku is https://rx-reflectio
 When accessed, the initial landing page should reflect the following image:
 
 ![Rx Reflection](<./wireframes/Screenshot 2024-02-12 at 1.37.22 PM.png>)
+
+## Stakeholder Presentation
+
+Attached is the stakeholder slide deck presentation with the final MVP product outline: [View the Rx-Reflection Presentation PDF](./wireframes/Rx-Reflection%Presentation.pdf)
