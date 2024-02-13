@@ -392,6 +392,26 @@ body,
 
 #med-list-container {
   background-color: #ca5513;
+  color: white;
+}
+
+#med-list-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#med-list-container th {
+  width: calc(100% / 6);
+  /* Divide equally into 6 columns */
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#med-list-container td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
 /* Media Queries for Responsive Adjustments */
