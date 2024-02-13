@@ -107,4 +107,4 @@ When accessed, the initial landing page should reflect the following image:
 
 ## Stakeholder Presentation
 
-Attached is the stakeholder slide deck presentation with the final MVP product outline: [View the Rx-Reflection Presentation PDF](./wireframes/Rx-Reflection%Presentation.pdf)
+Attached is the stakeholder slide deck presentation with the final MVP product outline: [View the Rx-Reflection Presentation PDF](https://docs.google.com/presentation/d/1K-Kdj1IZU6G8bJRV2-VfBhRDx31thhMRMEPy4WeLtoM/edit?usp=sharing)
