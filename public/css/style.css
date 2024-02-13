@@ -84,16 +84,35 @@ html {
 
 /* Home Dashboard */
 @keyframes grow {
-  0% { transform: scale(1); }
-  100% { transform: scale(2); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(2);
+  }
 }
 
 @keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  50% { transform: translateX(10px); }
-  75% { transform: translateX(-10px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  75% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 
@@ -333,6 +352,12 @@ body,
   text-align: center;
 }
 
+.menu-content a {
+  color: #ffffff;
+  margin: 10px;
+  text-decoration: none;
+}
+
 .med-list {
   background: #ffffff;
   padding: 20px;
@@ -363,4 +388,41 @@ body,
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+#med-list-container {
+  background-color: #ca5513;
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 768px) {
+  .title-logo {
+    font-size: 24px;
+    /* Smaller font size for smaller screens */
+  }
+
+  .menu-icon {
+    width: 25px;
+    /* Slightly smaller menu icon for compactness */
+  }
+
+  .login-form,
+  .patient-form {
+    max-width: 100%;
+    /* Allows the form to expand to the full width of smaller screens */
+  }
+
+  .new-patient-form fieldset {
+    flex-direction: column;
+  }
+
+  .site-header {
+    flex-direction: column;
+  }
+
+  .med-list .table thead tr {
+    flex-direction: column;
+    text-align: left;
+  }
+
 }
